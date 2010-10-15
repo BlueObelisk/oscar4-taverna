@@ -1,0 +1,3 @@
+glob:*.class
+glob:target/
+glob:.settings/
