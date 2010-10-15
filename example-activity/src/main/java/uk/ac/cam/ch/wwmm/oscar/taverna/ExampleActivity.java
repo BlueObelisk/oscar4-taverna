@@ -3,6 +3,11 @@ package uk.ac.cam.ch.wwmm.oscar.taverna;
 import java.util.HashMap;
 import java.util.Map;
 
+import uk.ac.cam.ch.wwmm.opsin.NameToStructure;
+import uk.ac.cam.ch.wwmm.opsin.NameToStructureException;
+import uk.ac.cam.ch.wwmm.opsin.OpsinResult;
+import uk.ac.cam.ch.wwmm.opsin.OpsinResult.OPSIN_RESULT_STATUS;
+
 import net.sf.taverna.t2.invocation.InvocationContext;
 import net.sf.taverna.t2.reference.ReferenceService;
 import net.sf.taverna.t2.reference.T2Reference;
@@ -20,8 +25,8 @@ public class ExampleActivity extends
 	 * would not apply if port names are looked up dynamically from the service
 	 * operation, like done for WSDL services.
 	 */
-	private static final String IN_FIRST_INPUT = "iupacName";
-	private static final String OUT_SIMPLE_OUTPUT = "CML";
+	private static final String INPUT = "iupacName";
+	private static final String OUTPUT = "CML";
 	
 	private ExampleActivityConfigurationBean configBean;
 
@@ -29,35 +34,16 @@ public class ExampleActivity extends
 	public void configure(ExampleActivityConfigurationBean configBean)
 			throws ActivityConfigurationException {
 
-		// Store for getConfiguration(), but you could also make
-		// getConfiguration() return a new bean from other sources
 		this.configBean = configBean;
-
-		// OPTIONAL: 
-		// Do any server-side lookups and configuration, like resolving WSDLs
-
-		// myClient = new MyClient(configBean.getExampleUri());
-		// this.service = myClient.getService(configBean.getExampleString());
-
-		
-		// REQUIRED: (Re)create input/output ports depending on configuration
 		configurePorts();
 	}
 
 	protected void configurePorts() {
-		// In case we are being reconfigured - remove existing ports first
-		// to avoid duplicates
 		removeInputs();
 		removeOutputs();
 
-		// FIXME: Replace with your input and output port definitions
-		
-		// Hard coded input port, expecting a single String
-		addInput(IN_FIRST_INPUT, 0, true, null, String.class);
-
-		// Single value output port (depth 0)
-		addOutput(OUT_SIMPLE_OUTPUT, 0);
-
+		addInput(INPUT, 0, true, null, String.class);
+		addOutput(OUTPUT, 0);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -74,14 +60,26 @@ public class ExampleActivity extends
 				ReferenceService referenceService = context
 						.getReferenceService();
 				// Resolve inputs 				
-				String firstInput = (String) referenceService.renderIdentifier(inputs.get(IN_FIRST_INPUT), 
-						String.class, context);
+				String iupacName = (String) referenceService.renderIdentifier(
+					inputs.get(INPUT), String.class, context
+				);
 				
 				// Register outputs
 				Map<String, T2Reference> outputs = new HashMap<String, T2Reference>();
-				String simpleValue = "simple: " + firstInput;
-				T2Reference simpleRef = referenceService.register(simpleValue, 0, true, context);
-				outputs.put(OUT_SIMPLE_OUTPUT, simpleRef);
+				String cml = "<cml/>";
+				try {
+					NameToStructure nameToStructure = NameToStructure.getInstance();
+					OpsinResult result = nameToStructure.parseChemicalName(
+						iupacName, false
+					);
+					if (result.getStatus() == OPSIN_RESULT_STATUS.SUCCESS) {
+						cml = result.getCml().toXML();
+					}
+				} catch (NameToStructureException e) {
+					e.printStackTrace();
+				}
+				T2Reference simpleRef = referenceService.register(cml, 0, true, context);
+				outputs.put(OUTPUT, simpleRef);
 
 				// return map of output data, with empty index array as this is
 				// the only and final result (this index parameter is used if

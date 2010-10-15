@@ -48,7 +48,7 @@ public class ExampleActivityTest {
 				activity, inputs, expectedOutputTypes);
 
 		assertEquals("Unexpected outputs", 1, outputs.size());
-		assertEquals("simple: hello", outputs.get("CML"));
+		assertTrue(outputs.get("CML").toString().contains("cml"));
 	}
 
 	@Test
