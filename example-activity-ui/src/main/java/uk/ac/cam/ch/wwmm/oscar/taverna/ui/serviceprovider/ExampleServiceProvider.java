@@ -30,7 +30,7 @@ public class ExampleServiceProvider implements ServiceDescriptionProvider {
 		ExampleServiceDesc service = new ExampleServiceDesc();
 
 		// Optional: set description
-		service.setDescription("Service example number ");
+		service.setDescription("Convert IUPAC names into CML");
 		results.add(service);
 
 		// partialResults() can also be called several times from inside

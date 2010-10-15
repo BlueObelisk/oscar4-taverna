@@ -1,6 +1,5 @@
 package uk.ac.cam.ch.wwmm.oscar.taverna.ui.serviceprovider;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +8,6 @@ import javax.swing.Icon;
 
 import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
 import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
-
 import uk.ac.cam.ch.wwmm.oscar.taverna.ExampleActivity;
 import uk.ac.cam.ch.wwmm.oscar.taverna.ExampleActivityConfigurationBean;
 
@@ -50,7 +48,7 @@ public class ExampleServiceDesc extends ServiceDescription<ExampleActivityConfig
 	 */
 	@Override
 	public String getName() {
-		return "foo string";
+		return "OPSIN";
 	}
 
 	/**
@@ -60,7 +58,7 @@ public class ExampleServiceDesc extends ServiceDescription<ExampleActivityConfig
 	@Override
 	public List<String> getPath() {
 		// For deeper paths you may return several strings
-		return Arrays.asList("Examples ");
+		return Arrays.asList("Oscar4");
 	}
 
 	/**
