@@ -8,16 +8,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
-import uk.ac.cam.ch.wwmm.oscar.taverna.ExampleActivity;
-import uk.ac.cam.ch.wwmm.oscar.taverna.ExampleActivityConfigurationBean;
-import uk.ac.cam.ch.wwmm.oscar.taverna.ui.config.ExampleConfigureAction;
+import uk.ac.cam.ch.wwmm.oscar.taverna.OPSINActivity;
+import uk.ac.cam.ch.wwmm.oscar.taverna.OPSINActivityConfigurationBean;
+import uk.ac.cam.ch.wwmm.oscar.taverna.ui.config.OPSINConfigureAction;
 
 @SuppressWarnings("serial")
-public class ExampleContextualView extends ContextualView {
-	private final ExampleActivity activity;
+public class OPSINContextualView extends ContextualView {
+	private final OPSINActivity activity;
 	private JLabel description = new JLabel("ads");
 
-	public ExampleContextualView(ExampleActivity activity) {
+	public OPSINContextualView(OPSINActivity activity) {
 		this.activity = activity;
 		initView();
 	}
@@ -32,7 +32,7 @@ public class ExampleContextualView extends ContextualView {
 
 	@Override
 	public String getViewTitle() {
-		ExampleActivityConfigurationBean configuration = activity
+		OPSINActivityConfigurationBean configuration = activity
 				.getConfiguration();
 		return "Example service";
 	}
@@ -42,7 +42,7 @@ public class ExampleContextualView extends ContextualView {
 	 */
 	@Override
 	public void refreshView() {
-		ExampleActivityConfigurationBean configuration = activity
+		OPSINActivityConfigurationBean configuration = activity
 				.getConfiguration();
 		description.setText("Example service ");
 		// TODO: Might also show extra service information looked
@@ -60,7 +60,7 @@ public class ExampleContextualView extends ContextualView {
 	
 	@Override
 	public Action getConfigureAction(final Frame owner) {
-		return new ExampleConfigureAction(activity, owner);
+		return new OPSINConfigureAction(activity, owner);
 	}
 
 }

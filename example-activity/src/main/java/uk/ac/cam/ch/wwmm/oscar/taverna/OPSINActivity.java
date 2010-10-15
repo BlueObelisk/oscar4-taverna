@@ -16,9 +16,9 @@ import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationE
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivity;
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivityCallback;
 
-public class ExampleActivity extends
-		AbstractAsynchronousActivity<ExampleActivityConfigurationBean>
-		implements AsynchronousActivity<ExampleActivityConfigurationBean> {
+public class OPSINActivity extends
+		AbstractAsynchronousActivity<OPSINActivityConfigurationBean>
+		implements AsynchronousActivity<OPSINActivityConfigurationBean> {
 
 	/*
 	 * Best practice: Keep port names as constants to avoid misspelling. This
@@ -28,10 +28,10 @@ public class ExampleActivity extends
 	private static final String INPUT = "iupacName";
 	private static final String OUTPUT = "CML";
 	
-	private ExampleActivityConfigurationBean configBean;
+	private OPSINActivityConfigurationBean configBean;
 
 	@Override
-	public void configure(ExampleActivityConfigurationBean configBean)
+	public void configure(OPSINActivityConfigurationBean configBean)
 			throws ActivityConfigurationException {
 
 		this.configBean = configBean;
@@ -90,7 +90,7 @@ public class ExampleActivity extends
 	}
 
 	@Override
-	public ExampleActivityConfigurationBean getConfiguration() {
+	public OPSINActivityConfigurationBean getConfiguration() {
 		return this.configBean;
 	}
 

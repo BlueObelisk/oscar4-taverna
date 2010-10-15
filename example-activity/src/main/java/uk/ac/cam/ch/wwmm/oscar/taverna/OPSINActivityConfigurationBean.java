@@ -5,6 +5,6 @@ import java.io.Serializable;
 /**
  * Example activity configuration bean.
  */
-public class ExampleActivityConfigurationBean implements Serializable {
+public class OPSINActivityConfigurationBean implements Serializable {
 
 }

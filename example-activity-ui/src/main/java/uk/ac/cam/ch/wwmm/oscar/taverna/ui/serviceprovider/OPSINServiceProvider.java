@@ -9,7 +9,7 @@ import javax.swing.Icon;
 import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
 import net.sf.taverna.t2.servicedescriptions.ServiceDescriptionProvider;
 
-public class ExampleServiceProvider implements ServiceDescriptionProvider {
+public class OPSINServiceProvider implements ServiceDescriptionProvider {
 	
 	private static final URI providerId = URI
 		.create("http://example.com/2010/service-provider/example-activity-ui");
@@ -27,7 +27,7 @@ public class ExampleServiceProvider implements ServiceDescriptionProvider {
 
 		// FIXME: Implement the actual service search/lookup instead
 		// of dummy for-loop
-		ExampleServiceDesc service = new ExampleServiceDesc();
+		OPSINServiceDesc service = new OPSINServiceDesc();
 
 		// Optional: set description
 		service.setDescription("Convert IUPAC names into CML");
@@ -45,7 +45,7 @@ public class ExampleServiceProvider implements ServiceDescriptionProvider {
 	 * Icon for service provider
 	 */
 	public Icon getIcon() {
-		return ExampleServiceIcon.getIcon();
+		return OPSINServiceIcon.getIcon();
 	}
 
 	/**
