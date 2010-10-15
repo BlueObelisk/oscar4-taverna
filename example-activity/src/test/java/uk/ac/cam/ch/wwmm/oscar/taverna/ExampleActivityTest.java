@@ -3,7 +3,6 @@ package uk.ac.cam.ch.wwmm.oscar.taverna;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -16,9 +15,6 @@ import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityInputPort;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import uk.ac.cam.ch.wwmm.oscar.taverna.ExampleActivity;
-import uk.ac.cam.ch.wwmm.oscar.taverna.ExampleActivityConfigurationBean;
 
 public class ExampleActivityTest {
 
@@ -43,16 +39,16 @@ public class ExampleActivityTest {
 		activity.configure(configBean);
 
 		Map<String, Object> inputs = new HashMap<String, Object>();
-		inputs.put("firstInput", "hello");
+		inputs.put("iupacName", "hello");
 
 		Map<String, Class<?>> expectedOutputTypes = new HashMap<String, Class<?>>();
-		expectedOutputTypes.put("simpleOutput", String.class);
+		expectedOutputTypes.put("CML", String.class);
 
 		Map<String, Object> outputs = ActivityInvoker.invokeAsyncActivity(
 				activity, inputs, expectedOutputTypes);
 
 		assertEquals("Unexpected outputs", 1, outputs.size());
-		assertEquals("simple: hello", outputs.get("simpleOutput"));
+		assertEquals("simple: hello", outputs.get("CML"));
 	}
 
 	@Test
@@ -84,10 +80,10 @@ public class ExampleActivityTest {
 	@Test
 	public void configureActivity() throws Exception {
 		Set<String> expectedInputs = new HashSet<String>();
-		expectedInputs.add("firstInput");
+		expectedInputs.add("iupacName");
 
 		Set<String> expectedOutputs = new HashSet<String>();
-		expectedOutputs.add("simpleOutput");
+		expectedOutputs.add("CML");
 
 		activity.configure(configBean);
 

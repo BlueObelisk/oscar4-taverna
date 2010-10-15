@@ -20,8 +20,8 @@ public class ExampleActivity extends
 	 * would not apply if port names are looked up dynamically from the service
 	 * operation, like done for WSDL services.
 	 */
-	private static final String IN_FIRST_INPUT = "firstInput";
-	private static final String OUT_SIMPLE_OUTPUT = "simpleOutput";
+	private static final String IN_FIRST_INPUT = "iupacName";
+	private static final String OUT_SIMPLE_OUTPUT = "CML";
 	
 	private ExampleActivityConfigurationBean configBean;
 
