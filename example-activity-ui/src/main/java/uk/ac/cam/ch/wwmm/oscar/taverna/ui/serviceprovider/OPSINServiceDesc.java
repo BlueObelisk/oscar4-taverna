@@ -8,18 +8,18 @@ import javax.swing.Icon;
 
 import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
 import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
-import uk.ac.cam.ch.wwmm.oscar.taverna.ExampleActivity;
-import uk.ac.cam.ch.wwmm.oscar.taverna.ExampleActivityConfigurationBean;
+import uk.ac.cam.ch.wwmm.oscar.taverna.OPSINActivity;
+import uk.ac.cam.ch.wwmm.oscar.taverna.OPSINActivityConfigurationBean;
 
-public class ExampleServiceDesc extends ServiceDescription<ExampleActivityConfigurationBean> {
+public class OPSINServiceDesc extends ServiceDescription<OPSINActivityConfigurationBean> {
 
 	/**
 	 * The subclass of Activity which should be instantiated when adding a service
 	 * for this description 
 	 */
 	@Override
-	public Class<? extends Activity<ExampleActivityConfigurationBean>> getActivityClass() {
-		return ExampleActivity.class;
+	public Class<? extends Activity<OPSINActivityConfigurationBean>> getActivityClass() {
+		return OPSINActivity.class;
 	}
 
 	/**
@@ -29,8 +29,8 @@ public class ExampleServiceDesc extends ServiceDescription<ExampleActivityConfig
 	 * 
 	 */
 	@Override
-	public ExampleActivityConfigurationBean getActivityConfiguration() {
-		ExampleActivityConfigurationBean bean = new ExampleActivityConfigurationBean();
+	public OPSINActivityConfigurationBean getActivityConfiguration() {
+		OPSINActivityConfigurationBean bean = new OPSINActivityConfigurationBean();
 		return bean;
 	}
 
@@ -39,7 +39,7 @@ public class ExampleServiceDesc extends ServiceDescription<ExampleActivityConfig
 	 */
 	@Override
 	public Icon getIcon() {
-		return ExampleServiceIcon.getIcon();
+		return OPSINServiceIcon.getIcon();
 	}
 
 	/**

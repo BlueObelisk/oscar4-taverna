@@ -1,19 +1,19 @@
 package uk.ac.cam.ch.wwmm.oscar.taverna.ui.config;
 
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationPanel;
-import uk.ac.cam.ch.wwmm.oscar.taverna.ExampleActivity;
-import uk.ac.cam.ch.wwmm.oscar.taverna.ExampleActivityConfigurationBean;
+import uk.ac.cam.ch.wwmm.oscar.taverna.OPSINActivity;
+import uk.ac.cam.ch.wwmm.oscar.taverna.OPSINActivityConfigurationBean;
 
 
 @SuppressWarnings("serial")
-public class ExampleConfigurationPanel
+public class OPSINConfigurationPanel
 		extends
-		ActivityConfigurationPanel<ExampleActivity, ExampleActivityConfigurationBean> {
+		ActivityConfigurationPanel<OPSINActivity, OPSINActivityConfigurationBean> {
 
-	private ExampleActivity activity;
-	private ExampleActivityConfigurationBean configBean;
+	private OPSINActivity activity;
+	private OPSINActivityConfigurationBean configBean;
 	
-	public ExampleConfigurationPanel(ExampleActivity activity) {
+	public OPSINConfigurationPanel(OPSINActivity activity) {
 		this.activity = activity;
 		initGui();
 	}
@@ -38,7 +38,7 @@ public class ExampleConfigurationPanel
 	 * noteConfiguration() was called.
 	 */
 	@Override
-	public ExampleActivityConfigurationBean getConfiguration() {
+	public OPSINActivityConfigurationBean getConfiguration() {
 		// Should already have been made by noteConfiguration()
 		return configBean;
 	}
@@ -57,7 +57,7 @@ public class ExampleConfigurationPanel
 	 */
 	@Override
 	public void noteConfiguration() {
-		configBean = new ExampleActivityConfigurationBean();
+		configBean = new OPSINActivityConfigurationBean();
 	}
 
 	/**

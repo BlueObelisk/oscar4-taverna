@@ -14,7 +14,7 @@ import net.sf.taverna.raven.launcher.Launcher;
  * in a Taverna run normally.
  * 
  */
-public class TavernaWorkbenchWithExamplePlugin {
+public class TavernaWorkbenchWithOscarPlugin {
 	public static void main(String[] args) {
 		Launcher.main(args);
 	}

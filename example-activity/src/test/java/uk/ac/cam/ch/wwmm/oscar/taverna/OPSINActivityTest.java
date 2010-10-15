@@ -16,20 +16,20 @@ import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityInputPort;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ExampleActivityTest {
+public class OPSINActivityTest {
 
-	private ExampleActivityConfigurationBean configBean;
+	private OPSINActivityConfigurationBean configBean;
 
-	private ExampleActivity activity = new ExampleActivity();
+	private OPSINActivity activity = new OPSINActivity();
 
 	@Before
 	public void makeConfigBean() throws Exception {
-		configBean = new ExampleActivityConfigurationBean();
+		configBean = new OPSINActivityConfigurationBean();
 	}
 
 	@Test
 	public void invalidConfiguration() throws ActivityConfigurationException {
-		ExampleActivityConfigurationBean invalidBean = new ExampleActivityConfigurationBean();
+		OPSINActivityConfigurationBean invalidBean = new OPSINActivityConfigurationBean();
 		// Should throw ActivityConfigurationException
 		activity.configure(invalidBean);
 	}
@@ -70,7 +70,7 @@ public class ExampleActivityTest {
 	public void reConfiguredSpecialPorts() throws Exception {
 		activity.configure(configBean);
 
-		ExampleActivityConfigurationBean specialBean = new ExampleActivityConfigurationBean();
+		OPSINActivityConfigurationBean specialBean = new OPSINActivityConfigurationBean();
 		activity.configure(specialBean);
 		// Should now have added the optional ports
 		assertEquals("Unexpected inputs", 1, activity.getInputPorts().size());
