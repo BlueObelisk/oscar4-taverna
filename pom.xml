@@ -86,7 +86,7 @@
 		</repository>
 	</repositories>
 	<modules>
-		<module>example-activity</module>
-		<module>example-activity-ui</module>
+		<module>oscar-activity</module>
+		<module>oscar-activity-ui</module>
 	</modules>
 </project>
