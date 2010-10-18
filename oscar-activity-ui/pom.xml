@@ -6,18 +6,13 @@
 		<artifactId>uk.ac.cam.ch.wwmm.oscar.taverna</artifactId>
 		<version>4.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>example-activity-ui</artifactId>
-	<name>Example activity UI bindings</name>
+	<artifactId>oscar-activity-ui</artifactId>
+	<name>Oscar4 activities UI bindings</name>
 
 	<dependencies>
-                <dependency>
-			<groupId>net.sf.taverna.t2.activities</groupId>
-			<artifactId>example-activity</artifactId>
-			<version>4.0-SNAPSHOT</version>
-		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>example-activity</artifactId>
+			<artifactId>oscar-activity</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
