@@ -39,7 +39,7 @@ public class OPSINActivityHealthChecker implements
 		// The default explanation here will be used if the subreports list is
 		// empty
 		return new VisitReport(HealthCheck.getInstance(), activity,
-				"Example service OK", HealthCheck.NO_PROBLEM, subReports);
+				"OPSIN service OK", HealthCheck.NO_PROBLEM, subReports);
 	}
 
 }

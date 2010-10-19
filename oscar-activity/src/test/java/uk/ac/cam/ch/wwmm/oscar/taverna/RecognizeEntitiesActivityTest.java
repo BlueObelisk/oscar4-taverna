@@ -40,16 +40,16 @@ public class RecognizeEntitiesActivityTest {
 		activity.configure(configBean);
 
 		Map<String, Object> inputs = new HashMap<String, Object>();
-		inputs.put("iupacName", "hello, what about 1-propanol?");
+		inputs.put("plainText", "hello, what about 1-propanol?");
 
 		Map<String, Class<?>> expectedOutputTypes = new HashMap<String, Class<?>>();
-		expectedOutputTypes.put("CML", String.class);
+		expectedOutputTypes.put("entities", String.class);
 
 		Map<String, Object> outputs = ActivityInvoker.invokeAsyncActivity(
 				activity, inputs, expectedOutputTypes);
 
 		assertEquals("Unexpected outputs", 1, outputs.size());
-		assertTrue(outputs.get("CML").toString().contains("propanol"));
+		assertTrue(outputs.get("entities").toString().contains("propanol"));
 	}
 
 	@Test
@@ -82,10 +82,10 @@ public class RecognizeEntitiesActivityTest {
 	@Test
 	public void configureActivity() throws Exception {
 		Set<String> expectedInputs = new HashSet<String>();
-		expectedInputs.add("iupacName");
+		expectedInputs.add("plainText");
 
 		Set<String> expectedOutputs = new HashSet<String>();
-		expectedOutputs.add("CML");
+		expectedOutputs.add("entities");
 
 		activity.configure(configBean);
 
