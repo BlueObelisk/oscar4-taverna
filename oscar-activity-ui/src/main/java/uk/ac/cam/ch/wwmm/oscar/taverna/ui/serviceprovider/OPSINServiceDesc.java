@@ -1,6 +1,5 @@
 package uk.ac.cam.ch.wwmm.oscar.taverna.ui.serviceprovider;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -68,8 +67,7 @@ public class OPSINServiceDesc extends ServiceDescription<OPSINActivityConfigurat
 	 */
 	@Override
 	protected List<? extends Object> getIdentifyingData() {
-		// FIXME: Use your fields instead of example fields
-		return new ArrayList<Object>();
+		return Arrays.<Object> asList(this.getName(), this.getPath());
 	}
 
 }

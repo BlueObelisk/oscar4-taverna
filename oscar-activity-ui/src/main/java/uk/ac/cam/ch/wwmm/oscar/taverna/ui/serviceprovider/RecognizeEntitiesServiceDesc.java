@@ -69,8 +69,7 @@ public class RecognizeEntitiesServiceDesc extends ServiceDescription<RecognizeEn
 	 */
 	@Override
 	protected List<? extends Object> getIdentifyingData() {
-		// FIXME: Use your fields instead of example fields
-		return new ArrayList<Object>();
+		return Arrays.<Object> asList(this.getName(), this.getPath());
 	}
 
 }
