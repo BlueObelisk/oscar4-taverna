@@ -2,6 +2,7 @@ package uk.ac.cam.ch.wwmm.oscar.taverna.ui.serviceprovider;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.Icon;
@@ -20,24 +21,18 @@ public class OPSINServiceProvider implements ServiceDescriptionProvider {
 	@SuppressWarnings("unchecked")
 	public void findServiceDescriptionsAsync(
 			FindServiceDescriptionsCallBack callBack) {
-		// Use callback.status() for long-running searches
-		// callBack.status("Resolving example services");
-
 		List<ServiceDescription> results = new ArrayList<ServiceDescription>();
 
-		// FIXME: Implement the actual service search/lookup instead
-		// of dummy for-loop
-		OPSINServiceDesc service = new OPSINServiceDesc();
-
-		// Optional: set description
+		ServiceDescription service = new OPSINServiceDesc();
 		service.setDescription("Convert IUPAC names into CML");
 		results.add(service);
+		callBack.partialResults(Collections.singletonList(service));
 
-		// partialResults() can also be called several times from inside
-		// for-loop if the full search takes a long time
-		callBack.partialResults(results);
+		service = new RecognizeEntitiesServiceDesc();
+		service.setDescription("Extract chemical entities from a plain text");
+		results.add(service);
+		callBack.partialResults(Collections.singletonList(service));
 
-		// No more results will be coming
 		callBack.finished();
 	}
 
