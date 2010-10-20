@@ -1,3 +1,4 @@
 glob:*.class
 glob:target/
 glob:.settings/
+glob:**/Properties.dat
