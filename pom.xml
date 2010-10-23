@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>uk.ac.cam.ch.wwmm.oscar</groupId>
-	<artifactId>uk.ac.cam.ch.wwmm.oscar.taverna</artifactId>
+	<artifactId>oscar4-taverna</artifactId>
 	<version>4.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Example activity</name>
+	<name>Oscar4 for Taverna 2.2</name>
 
 	<properties>
 		<t2.core.version>1.2</t2.core.version>
