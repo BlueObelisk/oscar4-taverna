@@ -13,8 +13,9 @@ import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivity;
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivityCallback;
 import nu.xom.Builder;
 import nu.xom.Document;
+import uk.ac.cam.ch.wwmm.oscar.document.IProcessingDocument;
+import uk.ac.cam.ch.wwmm.oscar.document.ITokenSequence;
 import uk.ac.cam.ch.wwmm.oscar.document.NamedEntity;
-import uk.ac.cam.ch.wwmm.oscar.document.ProcessingDocument;
 import uk.ac.cam.ch.wwmm.oscar.document.ProcessingDocumentFactory;
 import uk.ac.cam.ch.wwmm.oscar.document.Token;
 import uk.ac.cam.ch.wwmm.oscar.document.TokenSequence;
@@ -101,12 +102,12 @@ public class RecognizeEntitiesActivity extends
 					"<P>" + input + "</P>",
 					"http://whatever.example.org/"
 				);
-				ProcessingDocument procDoc = new ProcessingDocumentFactory().
+				IProcessingDocument procDoc = new ProcessingDocumentFactory().
 					makeTokenisedDocument(Tokeniser.getInstance(),
 						doc, true, false, false
 					);
 				List<TokenSequence> tokenSequences = procDoc.getTokenSequences();
-				for (TokenSequence tokens : tokenSequences) {
+				for (ITokenSequence tokens : tokenSequences) {
 					for (Token token : tokens.getTokens())
 						System.out.println("token: " + token.getValue());
 				}
