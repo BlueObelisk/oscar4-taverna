@@ -14,10 +14,10 @@ import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivityCa
 import nu.xom.Builder;
 import nu.xom.Document;
 import uk.ac.cam.ch.wwmm.oscar.document.IProcessingDocument;
+import uk.ac.cam.ch.wwmm.oscar.document.IToken;
 import uk.ac.cam.ch.wwmm.oscar.document.ITokenSequence;
 import uk.ac.cam.ch.wwmm.oscar.document.NamedEntity;
 import uk.ac.cam.ch.wwmm.oscar.document.ProcessingDocumentFactory;
-import uk.ac.cam.ch.wwmm.oscar.document.Token;
 import uk.ac.cam.ch.wwmm.oscar.document.TokenSequence;
 import uk.ac.cam.ch.wwmm.oscarMEMM.MEMMRecogniser;
 import uk.ac.cam.ch.wwmm.oscartokeniser.Tokeniser;
@@ -108,7 +108,7 @@ public class RecognizeEntitiesActivity extends
 					);
 				List<TokenSequence> tokenSequences = procDoc.getTokenSequences();
 				for (ITokenSequence tokens : tokenSequences) {
-					for (Token token : tokens.getTokens())
+					for (IToken token : tokens.getTokens())
 						System.out.println("token: " + token.getValue());
 				}
 				return tokenSequences;
