@@ -18,7 +18,6 @@ import uk.ac.cam.ch.wwmm.oscar.document.IToken;
 import uk.ac.cam.ch.wwmm.oscar.document.ITokenSequence;
 import uk.ac.cam.ch.wwmm.oscar.document.NamedEntity;
 import uk.ac.cam.ch.wwmm.oscar.document.ProcessingDocumentFactory;
-import uk.ac.cam.ch.wwmm.oscar.document.TokenSequence;
 import uk.ac.cam.ch.wwmm.oscarMEMM.MEMMRecogniser;
 import uk.ac.cam.ch.wwmm.oscartokeniser.Tokeniser;
 
@@ -73,7 +72,7 @@ public class RecognizeEntitiesActivity extends
 				// Register outputs
 				Map<String, T2Reference> outputs = new HashMap<String, T2Reference>();
 				String normalizedText = normalize(inputText);
-				List<TokenSequence> tokens;
+				List<ITokenSequence> tokens;
 				try {
 					tokens = tokenize(normalizedText);
 					List<NamedEntity> entities = recognizeNamedEntities(tokens);
@@ -96,7 +95,7 @@ public class RecognizeEntitiesActivity extends
 				callback.receiveResult(outputs, new int[0]);
 			}
 			
-			public List<TokenSequence> tokenize(String input) throws Exception {
+			public List<ITokenSequence> tokenize(String input) throws Exception {
 				Builder parser = new Builder();
 				Document doc = parser.build(
 					"<P>" + input + "</P>",
@@ -106,7 +105,7 @@ public class RecognizeEntitiesActivity extends
 					makeTokenisedDocument(Tokeniser.getInstance(),
 						doc, true, false, false
 					);
-				List<TokenSequence> tokenSequences = procDoc.getTokenSequences();
+				List<ITokenSequence> tokenSequences = procDoc.getTokenSequences();
 				for (ITokenSequence tokens : tokenSequences) {
 					for (IToken token : tokens.getTokens())
 						System.out.println("token: " + token.getValue());
@@ -118,7 +117,7 @@ public class RecognizeEntitiesActivity extends
 				return input;
 			}
 
-			public List<NamedEntity> recognizeNamedEntities(List<TokenSequence> tokens) throws Exception {
+			public List<NamedEntity> recognizeNamedEntities(List<ITokenSequence> tokens) throws Exception {
 				MEMMRecogniser mer = new MEMMRecogniser();
 				return mer.findNamedEntities(tokens);
 			}
