@@ -11,8 +11,6 @@ import net.sf.taverna.t2.workflowmodel.processor.activity.AbstractAsynchronousAc
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivity;
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivityCallback;
-import nu.xom.Builder;
-import nu.xom.Document;
 import uk.ac.cam.ch.wwmm.oscar.document.IProcessingDocument;
 import uk.ac.cam.ch.wwmm.oscar.document.IToken;
 import uk.ac.cam.ch.wwmm.oscar.document.ITokenSequence;
@@ -51,7 +49,6 @@ public class RecognizeEntitiesActivity extends
 		addOutput(OUTPUT, 0);
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public void executeAsynch(final Map<String, T2Reference> inputs,
 			final AsynchronousActivityCallback callback) {
@@ -97,9 +94,7 @@ public class RecognizeEntitiesActivity extends
 			
 			public List<ITokenSequence> tokenize(String input) throws Exception {
 				IProcessingDocument procDoc = new ProcessingDocumentFactory().
-					makeTokenisedDocument(Tokeniser.getInstance(),
-						input
-					);
+					makeTokenisedDocument(Tokeniser.getInstance(), input);
 				List<ITokenSequence> tokenSequences = procDoc.getTokenSequences();
 				for (ITokenSequence tokens : tokenSequences) {
 					for (IToken token : tokens.getTokens())
