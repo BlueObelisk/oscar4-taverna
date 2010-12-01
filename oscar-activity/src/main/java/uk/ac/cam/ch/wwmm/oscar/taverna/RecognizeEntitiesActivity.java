@@ -96,14 +96,9 @@ public class RecognizeEntitiesActivity extends
 			}
 			
 			public List<ITokenSequence> tokenize(String input) throws Exception {
-				Builder parser = new Builder();
-				Document doc = parser.build(
-					"<P>" + input + "</P>",
-					"http://whatever.example.org/"
-				);
 				IProcessingDocument procDoc = new ProcessingDocumentFactory().
 					makeTokenisedDocument(Tokeniser.getInstance(),
-						doc, true, false, false
+						input
 					);
 				List<ITokenSequence> tokenSequences = procDoc.getTokenSequences();
 				for (ITokenSequence tokens : tokenSequences) {
