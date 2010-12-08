@@ -93,7 +93,7 @@ public class RecognizeEntitiesActivity extends
 			}
 			
 			public List<ITokenSequence> tokenize(String input) throws Exception {
-				IProcessingDocument procDoc = new ProcessingDocumentFactory().
+				IProcessingDocument procDoc = ProcessingDocumentFactory.getInstance().
 					makeTokenisedDocument(Tokeniser.getInstance(), input);
 				List<ITokenSequence> tokenSequences = procDoc.getTokenSequences();
 				for (ITokenSequence tokens : tokenSequences) {
