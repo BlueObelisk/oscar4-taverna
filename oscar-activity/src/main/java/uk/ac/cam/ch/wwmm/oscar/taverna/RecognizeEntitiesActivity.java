@@ -98,7 +98,7 @@ public class RecognizeEntitiesActivity extends
 				List<ITokenSequence> tokenSequences = procDoc.getTokenSequences();
 				for (ITokenSequence tokens : tokenSequences) {
 					for (IToken token : tokens.getTokens())
-						System.out.println("token: " + token.getValue());
+						System.out.println("token: " + token.getSurface());
 				}
 				return tokenSequences;
 			}
