@@ -12,10 +12,10 @@ import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationE
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivity;
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivityCallback;
 import uk.ac.cam.ch.wwmm.oscar.document.IProcessingDocument;
-import uk.ac.cam.ch.wwmm.oscar.document.IToken;
-import uk.ac.cam.ch.wwmm.oscar.document.ITokenSequence;
 import uk.ac.cam.ch.wwmm.oscar.document.NamedEntity;
 import uk.ac.cam.ch.wwmm.oscar.document.ProcessingDocumentFactory;
+import uk.ac.cam.ch.wwmm.oscar.document.Token;
+import uk.ac.cam.ch.wwmm.oscar.document.TokenSequence;
 import uk.ac.cam.ch.wwmm.oscarMEMM.MEMMRecogniser;
 import uk.ac.cam.ch.wwmm.oscartokeniser.Tokeniser;
 
@@ -69,7 +69,7 @@ public class RecognizeEntitiesActivity extends
 				// Register outputs
 				Map<String, T2Reference> outputs = new HashMap<String, T2Reference>();
 				String normalizedText = normalize(inputText);
-				List<ITokenSequence> tokens;
+				List<TokenSequence> tokens;
 				try {
 					tokens = tokenize(normalizedText);
 					List<NamedEntity> entities = recognizeNamedEntities(tokens);
@@ -92,12 +92,12 @@ public class RecognizeEntitiesActivity extends
 				callback.receiveResult(outputs, new int[0]);
 			}
 			
-			public List<ITokenSequence> tokenize(String input) throws Exception {
+			public List<TokenSequence> tokenize(String input) throws Exception {
 				IProcessingDocument procDoc = ProcessingDocumentFactory.getInstance().
 					makeTokenisedDocument(Tokeniser.getDefaultInstance(), input);
-				List<ITokenSequence> tokenSequences = procDoc.getTokenSequences();
-				for (ITokenSequence tokens : tokenSequences) {
-					for (IToken token : tokens.getTokens())
+				List<TokenSequence> tokenSequences = procDoc.getTokenSequences();
+				for (TokenSequence tokens : tokenSequences) {
+					for (Token token : tokens.getTokens())
 						System.out.println("token: " + token.getSurface());
 				}
 				return tokenSequences;
@@ -107,7 +107,7 @@ public class RecognizeEntitiesActivity extends
 				return input;
 			}
 
-			public List<NamedEntity> recognizeNamedEntities(List<ITokenSequence> tokens) throws Exception {
+			public List<NamedEntity> recognizeNamedEntities(List<TokenSequence> tokens) throws Exception {
 				MEMMRecogniser mer = new MEMMRecogniser();
 				return mer.findNamedEntities(tokens);
 			}
