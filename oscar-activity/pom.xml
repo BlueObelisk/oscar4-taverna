@@ -4,12 +4,35 @@
 	<parent>
 		<groupId>uk.ac.cam.ch.wwmm.oscar</groupId>
 		<artifactId>oscar4-taverna</artifactId>
-		<version>4.0-SNAPSHOT</version>
+		<version>${oscar-taverna.version}</version>
 	</parent>
 	<artifactId>oscar-activity</artifactId>
 	<name>Oscar4 activities</name>
 
 	<dependencies>
+	<!-- UCC projects -->
+		<dependency>
+			<groupId>opsin</groupId>
+			<artifactId>core</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>uk.ac.cam.ch.wwmm.oscar</groupId>
+			<artifactId>oscar4-core</artifactId>
+			<version>${oscar.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>uk.ac.cam.ch.wwmm.oscar</groupId>
+			<artifactId>oscar4-memmrecogniser</artifactId>
+			<version>${oscar.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>uk.ac.cam.ch.wwmm.oscar</groupId>
+			<artifactId>oscar4-tokenizer</artifactId>
+			<version>${oscar.version}</version>
+		</dependency>
+		
+	<!-- non-UCC projects -->
 		<dependency>
 			<groupId>net.sf.taverna.t2.core</groupId>
 			<artifactId>workflowmodel-api</artifactId>
@@ -21,25 +44,6 @@
 			<version>${t2.activities.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>opsin</groupId>
-			<artifactId>core</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>uk.ac.cam.ch.wwmm.oscar</groupId>
-			<artifactId>oscar4-core</artifactId>
-			<version>4.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>uk.ac.cam.ch.wwmm.oscar</groupId>
-			<artifactId>oscar4-memmrecogniser</artifactId>
-			<version>4.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>uk.ac.cam.ch.wwmm.oscar</groupId>
-			<artifactId>oscar4-tokenizer</artifactId>
-			<version>4.0-SNAPSHOT</version>
-		</dependency>
+		
 	</dependencies>
 </project>

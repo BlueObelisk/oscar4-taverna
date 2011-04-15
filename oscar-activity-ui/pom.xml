@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>uk.ac.cam.ch.wwmm.oscar</groupId>
 		<artifactId>oscar4-taverna</artifactId>
-		<version>4.0-SNAPSHOT</version>
+		<version>${oscar-taverna.version}</version>
 	</parent>
 	<artifactId>oscar-activity-ui</artifactId>
 	<name>Oscar4 activities UI bindings</name>
@@ -13,8 +13,9 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>oscar-activity</artifactId>
-			<version>${project.version}</version>
+			<version>${oscar-taverna.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>net.sf.taverna.t2.ui-api</groupId>
 			<artifactId>activity-palette-api</artifactId>
