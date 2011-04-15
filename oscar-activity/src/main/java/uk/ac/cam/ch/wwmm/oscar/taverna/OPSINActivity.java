@@ -69,9 +69,7 @@ public class OPSINActivity extends
 				String cml = "<cml/>";
 				try {
 					NameToStructure nameToStructure = NameToStructure.getInstance();
-					OpsinResult result = nameToStructure.parseChemicalName(
-						iupacName, false
-					);
+					OpsinResult result = nameToStructure.parseChemicalName(iupacName);
 					if (result.getStatus() == OPSIN_RESULT_STATUS.SUCCESS) {
 						cml = result.getCml().toXML();
 					}
