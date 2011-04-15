@@ -18,8 +18,8 @@
 		<t2.activities.version>1.2</t2.activities.version>
 		<t2.ui.api.version>1.2</t2.ui.api.version>
 		<t2.workbench.version>2.2.0</t2.workbench.version>
-		<oscar.version>4.0-SNAPSHOT</oscar.version>
-		<oscar-taverna.version>4.0-SNAPSHOT</oscar-taverna.version>
+		<oscar.version>4.0.1</oscar.version>
+		<oscar-taverna.version>4.0.1</oscar-taverna.version>
 	</properties>
 
 	<build>
